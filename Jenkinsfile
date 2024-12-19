@@ -5,7 +5,7 @@ pipeline {
             maven 'Maven3'
     }
     environment {
-            REPO_URL = ' https://github.com/MINAWI0/GestionBibliotheque.git'
+            REPO_URL = 'https://github.com/MINAWI0/GestionBibliotheque.git'
             SONARQUBE_CREDENTIALS_ID = 'sonar'
     }
     stages {
@@ -13,6 +13,13 @@ pipeline {
                     steps {
                         cleanWs()
                     }
+         }
+         stage('Checkout from github') {
+                     steps {
+                         git branch: 'main',
+                         credentialsId: 'github',
+                         url: REPO_URL
+                     }
          }
         stage('Build') {
             steps {
