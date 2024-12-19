@@ -1,28 +1,33 @@
 pipeline {
     agent any
+    tools {
+            jdk 'Java17'
+            maven 'Maven3'
+    }
     environment {
-        MAVEN_HOME = tool 'Maven'
+            REPO_URL = ' https://github.com/MINAWI0/GestionBibliotheque.git'
+            SONARQUBE_CREDENTIALS_ID = 'sonar'
     }
     stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/votre-depot/GestionBibliotheque.git'
-            }
-        }
+         stage('clean work-space') {
+                    steps {
+                        cleanWs()
+                    }
+         }
         stage('Build') {
             steps {
-                sh '${MAVEN_HOME}/bin/mvn clean compile'
+                sh 'mvn clean compile'
             }
         }
         stage('Test') {
             steps {
-                sh '${MAVEN_HOME}/bin/mvn test'
+                sh 'mvn test'
             }
         }
         stage('Quality Analysis') {
             steps {
-                withSonarQubeEnv('SonarQube') {
-                    sh '${MAVEN_HOME}/bin/mvn sonar:sonar'
+                withSonarQubeEnv(installationName: 'sonar' , credentialsId: SONARQUBE_CREDENTIALS_ID) {
+                                    sh 'mvn sonar:sonar'
                 }
             }
         }
@@ -34,12 +39,12 @@ pipeline {
     }
     post {
         success {
-            emailext to: 'votre-email@example.com',
+            emailext to: 'minaouimh@gmail.com',
                 subject: 'Build Success',
                 body: 'Le build a été complété avec succès.'
         }
         failure {
-            emailext to: 'votre-email@example.com',
+            emailext to: 'minaouimh@gmail.com',
                 subject: 'Build Failed',
                 body: 'Le build a échoué.'
         }
