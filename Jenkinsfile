@@ -44,16 +44,20 @@ pipeline {
             }
         }
     }
-    post {
-        success {
-            emailext to: 'minaouimh@gmail.com',
-                subject: 'Build Success',
-                body: 'Le build a été complété avec succès.'
-        }
-        failure {
-            emailext to: 'minaouimh@gmail.com',
-                subject: 'Build Failed',
-                body: 'Le build a échoué.'
-        }
-    }
+     post {
+            success {
+                mail(
+                    to: 'minaouimh@gmail.com',
+                    subject: 'Build Success',
+                    body: 'Le build a été complété avec succès.'
+                )
+            }
+            failure {
+                mail(
+                    to: 'minaouimh@gmail.com',
+                    subject: 'Build Failed',
+                    body: 'Le build a échoué.'
+                )
+            }
+     }
 }
