@@ -23,12 +23,10 @@ public class BookService {
     }
 
     public void addBook(Book book) {
-        // Input validation can be added here before calling bookDAO.add()
         bookDAO.add(book);
     }
 
     public void updateBook(Book book) {
-        // Input validation can be added here before calling bookDAO.update()
         bookDAO.update(book);
     }
 

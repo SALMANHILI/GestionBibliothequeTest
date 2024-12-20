@@ -23,12 +23,10 @@ public class StudentService {
     }
 
     public void addStudent(Student student) {
-        // Input validation can be added here before calling studentDAO.add()
         studentDAO.add(student);
     }
 
     public void updateStudent(Student student) {
-        // Input validation can be added here before calling studentDAO.update()
         studentDAO.update(student);
     }
 

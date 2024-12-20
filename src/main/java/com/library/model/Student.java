@@ -12,7 +12,6 @@ public class Student {
         this.email = email;
     }
 
-    // Getters and setters for all fields
     public int getId() {
         return id;
     }

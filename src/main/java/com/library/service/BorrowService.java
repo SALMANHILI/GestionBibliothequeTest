@@ -44,7 +44,6 @@ public class BorrowService {
     }
 
     public void updateBorrow(Borrow borrow) {
-        // Input validation can be added here
         borrowDAO.update(borrow);
     }
 
@@ -52,7 +51,6 @@ public class BorrowService {
         borrowDAO.delete(id);
     }
 
-    // You would likely have a returnBook method here as well
     public void returnBook(int borrowId) {
         Borrow borrow = borrowDAO.getById(borrowId);
         if (borrow == null) {

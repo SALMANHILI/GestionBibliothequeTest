@@ -40,7 +40,7 @@ public class Main {
             System.out.print("Enter your choice: ");
 
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine(); 
 
             switch (choice) {
                 case 1:
@@ -83,7 +83,7 @@ public class Main {
         String publisher = scanner.nextLine();
         System.out.print("Enter year: ");
         int year = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine(); 
 
         Book book = new Book(0, title, author, publisher, year);
         bookService.addBook(book);
@@ -128,7 +128,7 @@ public class Main {
         int studentId = scanner.nextInt();
         System.out.print("Enter book ID: ");
         int bookId = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine(); 
 
         try {
             borrowService.borrowBook(studentId, bookId);
@@ -153,7 +153,7 @@ public class Main {
     private static void returnBook(Scanner scanner) {
         System.out.print("Enter borrow ID: ");
         int borrowId = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine(); 
 
         try {
             borrowService.returnBook(borrowId);

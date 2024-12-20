@@ -16,7 +16,6 @@ public class Book {
         this.year = year;
     }
 
-    // Getters and setters for all fields
     public int getId() {
         return id;
     }

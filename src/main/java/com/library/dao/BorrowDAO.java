@@ -51,7 +51,6 @@ public class BorrowDAO {
         return null;
     }
 
-    // In BorrowDAO.java, within the save() method
 
     public void save(Borrow borrow) {
         String query = "INSERT INTO borrows (member, book, borrow_date, return_date) VALUES (?, ?, ?, ?)";

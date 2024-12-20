@@ -4,8 +4,8 @@ import java.util.Date;
 
 public class Borrow {
     private int id;
-    private String member; // This likely refers to the student's name or ID
-    private String book;  // This likely refers to the book's title or ID
+    private String member; 
+    private String book;  
     private Date borrowDate;
     private Date returnDate;
 
@@ -17,7 +17,6 @@ public class Borrow {
         this.returnDate = returnDate;
     }
 
-    // Getters and setters for all fields
 
     public int getId() {
         return id;
